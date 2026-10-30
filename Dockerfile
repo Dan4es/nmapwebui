@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev l
 WORKDIR /build
 
 COPY go.mod go.sum ./
+ENV GOPROXY=https://go-mirror.gitverse.ru,direct
 RUN go mod download
 
 COPY . .
